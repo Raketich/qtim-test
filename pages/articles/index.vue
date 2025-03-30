@@ -17,6 +17,25 @@ const goToNextPage = () => {
     goToPage(currentPage.value + 1);
   }
 };
+
+useHead({
+  title: "Articles",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Browse our collection of articles about design, development, and digital solutions",
+    },
+    { property: "og:title", content: "Articles | QTIM" },
+    {
+      property: "og:description",
+      content:
+        "Browse our collection of articles about design, development, and digital solutions",
+    },
+    { property: "og:url", content: "https://qtim.pro/blog" },
+    { property: "og:image", content: "https://qtim.pro/og-image.jpg" },
+  ],
+});
 </script>
 
 <template>

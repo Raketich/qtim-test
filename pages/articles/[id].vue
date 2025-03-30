@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { Article } from "~/types/article";
 
-const { id } = useRoute().params;
+const route = useRoute();
+const { id } = route.params;
 const article = ref<Article | null>(null);
 const { getArticle } = useArticles();
 const imageLoaded = ref(true);
@@ -12,6 +13,34 @@ const handleImageError = () => {
 
 const { data: articleData } = await getArticle(id as string);
 article.value = articleData.value || null;
+
+useHead(() => {
+  if (!article.value) return {};
+
+  const title = article.value.title;
+  const description = article.value.preview || article.value.description;
+  const url = `https://qtim.pro/articles/${id}`;
+  const image =
+    imageLoaded.value && article.value.image
+      ? article.value.image
+      : "https://qtim.pro/og-image.jpg";
+
+  return {
+    title: title,
+    meta: [
+      { name: "description", content: description },
+      { property: "og:title", content: `${title} | QTIM` },
+      { property: "og:description", content: description },
+      { property: "og:url", content: url },
+      { property: "og:image", content: image },
+      { property: "og:type", content: "article" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: image },
+    ],
+    link: [{ rel: "canonical", href: url }],
+  };
+});
 </script>
 
 <template>
