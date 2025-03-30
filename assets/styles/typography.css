@@ -1,0 +1,35 @@
+.text-xxl {
+  font-size: 112px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.title-h1 {
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.title-h4 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 124%;
+}
+
+.text-m {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.text-m {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.text-s {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
