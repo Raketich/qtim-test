@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="header__left">
-        <NuxtLink to="/" class="logo">
+        <NuxtLink to="/articles" class="logo">
           <img
             src="/icons/logo-qtim.svg"
             alt="QTIM Logo"
@@ -84,7 +84,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: none;
+  border: 2px solid var(--color-gray-light);
   background: none;
   cursor: pointer;
   display: flex;
@@ -100,8 +100,8 @@
   height: 52px;
   padding: 16px 32px;
   border-radius: 100px;
-  background: #101010;
-  color: #fff;
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .logo {

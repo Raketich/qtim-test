@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import AppHeader from "@/components/common/AppHeader.vue";
+import AppFooter from "@/components/common/AppFooter.vue";
 </script>
 
 <template>
   <div class="layout">
     <AppHeader />
     <main class="layout__main">
-      <slot />
+      <div class="container">
+        <slot />
+      </div>
     </main>
+    <AppFooter />
   </div>
 </template>
 
@@ -19,7 +23,12 @@ import AppHeader from "@/components/common/AppHeader.vue";
 
 .layout__main {
   width: 100%;
-  max-width: 100vw;
-  padding-top: 241px;
+  padding-top: 121px;
+}
+
+.container {
+  max-width: 1216px;
+  width: 100%;
+  margin: 0 auto;
 }
 </style>
