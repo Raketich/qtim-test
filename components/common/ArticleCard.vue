@@ -37,10 +37,12 @@ const handleImageError = () => {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 378px;
   text-decoration: none;
   color: inherit;
+  margin: 0 auto;
 }
 
 .article-card__image-container {
@@ -83,5 +85,20 @@ const handleImageError = () => {
 
 .article-card__description {
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .article-card {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .article-card__image-container {
+    height: 220px;
+  }
 }
 </style>

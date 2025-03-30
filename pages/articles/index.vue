@@ -40,7 +40,7 @@ useHead({
 
 <template>
   <div class="articles-page">
-    <p class="articles-page__title text-xxl">Articles</p>
+    <h1 class="articles-page__title text-xxl">Articles</h1>
     <div class="articles__grid">
       <ArticleCard
         v-for="article in paginatedItems"
@@ -75,7 +75,7 @@ useHead({
 
 .articles__grid {
   display: grid;
-  grid-template-columns: repeat(4, 280px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   justify-content: center;
   margin-bottom: 40px;
@@ -84,6 +84,7 @@ useHead({
 .pagination {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .pagination button {
@@ -123,5 +124,35 @@ useHead({
   left: 50%;
   margin-left: -6px;
   margin-top: -4px;
+}
+
+@media (max-width: 1240px) {
+  .articles__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .articles__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .articles-page {
+    padding: 40px 0;
+    gap: 30px;
+  }
+
+  .articles__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pagination button {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
 }
 </style>

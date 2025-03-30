@@ -65,10 +65,10 @@ const locations = [
 <style scoped>
 .footer {
   width: 100%;
-  height: 900px;
   background: var(--color-violet-soft);
   display: flex;
   justify-content: center;
+  min-height: 900px;
 }
 
 .footer__content {
@@ -83,11 +83,11 @@ const locations = [
 .footer__top {
   display: flex;
   gap: 368px;
-  /* justify-content: space-between; */
 }
 
 .footer__left {
   width: 464px;
+  max-width: 100%;
 }
 
 .footer__question {
@@ -170,5 +170,96 @@ const locations = [
   position: absolute;
   bottom: 0;
   z-index: 1;
+}
+
+@media (max-width: 1240px) {
+  .footer__top {
+    gap: 120px;
+  }
+
+  .footer__title {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 960px) {
+  .footer__content {
+    padding-top: 100px;
+  }
+
+  .footer__top {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footer__right {
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .footer__title {
+    font-size: 48px;
+  }
+
+  .footer__go-circle {
+    width: 260px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__bottom {
+    margin-top: 60px;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer__go-btn {
+    font-size: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__content {
+    padding: 80px 20px 40px;
+  }
+
+  .footer__left {
+    width: 100%;
+  }
+
+  .footer__title {
+    font-size: 36px;
+  }
+
+  .footer__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 80px;
+    align-items: flex-start;
+  }
+
+  .footer__go-container {
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer__go-circle {
+    width: 200px;
+    height: 100px;
+  }
 }
 </style>

@@ -118,6 +118,52 @@ useHead(() => {
 
 .article__description {
   width: 695px;
+  max-width: 100%;
   text-align: left;
+}
+
+@media (max-width: 960px) {
+  .article__title {
+    font-size: 60px;
+  }
+
+  .article__image-container {
+    min-height: 300px;
+  }
+
+  .article__fallback {
+    height: 300px;
+  }
+
+  .article__fallback-text {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .article-page {
+    padding: 40px 0;
+  }
+
+  .article {
+    gap: 24px;
+  }
+
+  .article__title {
+    font-size: 36px;
+  }
+
+  .article__image-container {
+    min-height: 200px;
+  }
+
+  .article__fallback {
+    height: 200px;
+    padding: 20px;
+  }
+
+  .article__fallback-text {
+    font-size: 18px;
+  }
 }
 </style>
