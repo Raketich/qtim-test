@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const mobileMenuOpen = ref(false);
+const { isPeachTheme, toggleTheme } = useTheme();
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;
@@ -23,12 +24,20 @@ const closeMobileMenu = () => {
       <div class="header__left">
         <NuxtLink to="/articles" class="logo" @click="closeMobileMenu">
           <img
-            src="/icons/logo-qtim.svg"
+            :src="
+              isPeachTheme ? '/icons/logo-payot.png' : '/icons/logo-qtim.svg'
+            "
             alt="QTIM Logo"
             width="84"
             height="25"
           />
         </NuxtLink>
+        <div class="theme-toggle" @click="toggleTheme">
+          <div
+            class="theme-toggle__circle"
+            :class="{ 'is-active': isPeachTheme }"
+          ></div>
+        </div>
       </div>
 
       <button class="mobile-menu-toggle" @click="toggleMobileMenu">
@@ -257,5 +266,34 @@ const closeMobileMenu = () => {
   .nav-link {
     font-size: 24px;
   }
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  width: 52px;
+  height: 32px;
+  background: var(--color-gray-light);
+  border-radius: 16px;
+  cursor: pointer;
+  position: relative;
+  padding: 4px;
+}
+
+.theme-toggle__circle {
+  width: 24px;
+  height: 24px;
+  background: var(--color-violet-soft);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle__circle.is-active {
+  transform: translateX(20px);
+  background: var(--color-peach);
 }
 </style>

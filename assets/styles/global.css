@@ -18,3 +18,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body.peach-theme .footer {
+  background: var(--color-peach);
+}
+
+body.peach-theme .article__description {
+  text-align: center;
+  margin: 0 auto;
+}
+
+body.peach-theme .article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+}
+
+body.peach-theme .article__title {
+  grid-column: 1;
+}
+
+body.peach-theme .article__image-container {
+  grid-column: 1 / -1;
+}
+
+body.peach-theme .article__description {
+  grid-column: 1;
+}
+
+@media (max-width: 960px) {
+  body.peach-theme .article {
+    display: flex;
+    flex-direction: column;
+  }
+}
