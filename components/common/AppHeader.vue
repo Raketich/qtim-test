@@ -59,7 +59,10 @@ const closeMobileMenu = () => {
               height="24"
             />
           </button>
-          <NuxtLink to="/articles" class="right-button" @click="closeMobileMenu"
+          <NuxtLink
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            class="right-button"
+            @click="closeMobileMenu"
             >Let's work</NuxtLink
           >
         </div>

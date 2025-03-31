@@ -44,18 +44,40 @@ const locations = [
       </div>
       <div class="footer__bottom">
         <div class="footer__nav text-s">
-          <NuxtLink class="footer__link">Facebook</NuxtLink>
-          <NuxtLink class="footer__link">Instagram</NuxtLink>
-          <NuxtLink class="footer__link">Telegram</NuxtLink>
+          <NuxtLink
+            href="https://www.facebook.com/qtim.pro/"
+            class="footer__link"
+            >Facebook</NuxtLink
+          >
+          <NuxtLink
+            href="https://www.instagram.com/qtim.pro/"
+            class="footer__link"
+            >Instagram</NuxtLink
+          >
+          <NuxtLink href="https://t.me/qtim_pro" class="footer__link"
+            >Telegram</NuxtLink
+          >
         </div>
         <div class="footer__go-container">
-          <NuxtLink to="/articles" class="footer__go-btn">Go</NuxtLink>
+          <NuxtLink
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            class="footer__go-btn"
+            >Go</NuxtLink
+          >
           <div class="footer__go-circle"></div>
         </div>
         <div class="footer__nav text-s">
-          <NuxtLink class="footer__link">Behance</NuxtLink>
-          <NuxtLink class="footer__link">Linkedin</NuxtLink>
-          <NuxtLink class="footer__link">Privacy Policy</NuxtLink>
+          <NuxtLink href="https://www.behance.net/" class="footer__link"
+            >Behance</NuxtLink
+          >
+          <NuxtLink
+            href="https://ru.linkedin.com/company/qtim"
+            class="footer__link"
+            >Linkedin</NuxtLink
+          >
+          <NuxtLink to="/privacy-policy" class="footer__link"
+            >Privacy Policy</NuxtLink
+          >
         </div>
       </div>
     </div>
@@ -170,6 +192,10 @@ const locations = [
   position: absolute;
   bottom: 0;
   z-index: 1;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media (max-width: 1240px) {
