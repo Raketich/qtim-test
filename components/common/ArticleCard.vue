@@ -12,10 +12,20 @@ const imageLoaded = ref(true);
 const handleImageError = () => {
   imageLoaded.value = false;
 };
+
+const getArticleUrl = (title: string, id: string) => {
+  const kebabTitle = title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+
+  return `/articles/${kebabTitle}-${id}`;
+};
 </script>
 
 <template>
-  <NuxtLink :to="`/articles/${id}`" class="article-card">
+  <NuxtLink :to="getArticleUrl(title, id)" class="article-card">
     <div class="article-card__image-container">
       <img
         v-if="image && imageLoaded"

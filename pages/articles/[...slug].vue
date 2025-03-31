@@ -2,7 +2,16 @@
 import type { Article } from "~/types/article";
 
 const route = useRoute();
-const { id } = route.params;
+const slug = Array.isArray(route.params.slug)
+  ? route.params.slug.join("/")
+  : route.params.slug;
+
+const extractIdFromSlug = (slug: string) => {
+  const parts = slug.split("-");
+  return parts[parts.length - 1];
+};
+
+const id = extractIdFromSlug(slug);
 const article = ref<Article | null>(null);
 const { getArticle } = useArticles();
 const imageLoaded = ref(true);
@@ -11,7 +20,7 @@ const handleImageError = () => {
   imageLoaded.value = false;
 };
 
-const { data: articleData } = await getArticle(id as string);
+const { data: articleData } = await getArticle(id);
 article.value = articleData.value || null;
 
 useHead(() => {
@@ -19,7 +28,14 @@ useHead(() => {
 
   const title = article.value.title;
   const description = article.value.preview || article.value.description;
-  const url = `https://qtim.pro/articles/${id}`;
+
+  const kebabTitle = title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+
+  const url = `https://qtim.pro/articles/${kebabTitle}-${id}`;
   const image =
     imageLoaded.value && article.value.image
       ? article.value.image
